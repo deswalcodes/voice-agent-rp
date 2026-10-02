@@ -1,0 +1,17 @@
+# secrets and local state
+.env
+data/state.db
+data/state.db-journal
+
+# python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/
+*.log

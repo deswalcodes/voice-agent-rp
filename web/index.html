@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autopay Recovery Agent</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1><span id="merchant">StreamBox</span> · Autopay Recovery</h1>
+      <p class="sub">Voice agent that calls customers whose recurring payment failed, verifies them, and recovers the payment.</p>
+    </div>
+    <div class="chips" id="chips"></div>
+  </header>
+
+  <section class="metrics" id="metrics"></section>
+
+  <main class="grid">
+    <section class="card">
+      <div class="card-head">
+        <h2>Customers with failed autopay</h2>
+        <div class="actions">
+          <button id="plan-btn" class="ghost" title="Show who the campaign would dial right now">Campaign plan</button>
+          <button id="reset-btn" class="ghost danger">Reset demo data</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="customers">
+          <thead>
+            <tr><th>Customer</th><th>Plan</th><th>Amount</th><th>Failure</th><th>Attempts</th><th>Status</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint" id="plan-out" hidden></p>
+    </section>
+
+    <section class="card" id="call-card">
+      <div class="card-head">
+        <h2>Live call</h2>
+        <div class="actions">
+          <button id="mute-btn" class="ghost" disabled>Mute</button>
+          <button id="hangup-btn" class="danger" disabled>Hang up</button>
+        </div>
+      </div>
+      <div id="call-meta" class="meta">No active call. Pick a customer and press <b>Call in browser</b>. You play the customer; the agent will ask you for the 4 digits shown in the persona box.</div>
+      <div id="persona" class="persona" hidden></div>
+      <div id="transcript" class="transcript"></div>
+      <div id="outcome" class="outcome" hidden></div>
+    </section>
+  </main>
+
+  <section class="card">
+    <div class="card-head"><h2>Call history</h2></div>
+    <div id="history" class="history"></div>
+  </section>
+
+  <footer class="foot">All customer records are fictional. Phone numbers on file are never dialled; outbound calls go only to a number you type in and control.</footer>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
